@@ -24,24 +24,29 @@ public class MyArrayList<E> implements MyList<E> {
     private Object[] elementArray;
 
     /**
-     * Instantiates a new My array list instance with 100 elements capacity as default.
+     * The default value for setting of collection element capacity.
+     */
+    private static final int DEFAULT_ARRAY_CAPACITY = 100;
+
+    /**
+     * Instantiates a new My array list instance with default elements capacity.
      */
     public MyArrayList() {
-        elementArray = new Object[100];
+        elementArray = new Object[DEFAULT_ARRAY_CAPACITY];
     }
 
     /**
      * Adding element to collection by order.
+     *
      * @param e element to be added to collection.
-     * @return true - if element e added.
-     * @throws NullPointerException           if element e is null.
+     * @return true - if element e added, false - if element e is null, so element e could not be added.
      * @throws ArrayIndexOutOfBoundsException if max size of elements in MyArrayList instance has been reached,
      *                                        so element e could not be added.
      */
     @Override
     public boolean add(E e) {
         if (e == null) {
-            throw new NullPointerException();
+            return false;
         }
         if (biggestIndex + 1 >= (Integer.MAX_VALUE - 8)) {
             throw new ArrayIndexOutOfBoundsException();
@@ -66,10 +71,10 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * Adding element to collection at index number, saving order of other elements.
+     *
      * @param index the index number, where element e assumed to add.
      * @param e     element to be added to collection.
-     * @return true - if element e added.
-     * @throws NullPointerException           if element e is null.
+     * @return true - if element e added, false - if element e is null, so element e could not be added.
      * @throws ArrayIndexOutOfBoundsException if instance storage elements max capacity has been reached,
      *                                        so element e could not be added.
      * @throws IndexOutOfBoundsException      if index number is negative or bigger by 2 than last element index.
@@ -80,7 +85,7 @@ public class MyArrayList<E> implements MyList<E> {
             throw new IndexOutOfBoundsException();
         }
         if (e == null) {
-            throw new NullPointerException();
+            return false;
         }
         if (biggestIndex + 1 >= (Integer.MAX_VALUE - 8)) {
             throw new ArrayIndexOutOfBoundsException();
@@ -113,6 +118,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * Getting of element e stored at index number.
+     *
      * @param index the index number, whose element e assumed to get.
      * @return element e stored at index number
      * @throws IndexOutOfBoundsException if index is negative number or bigger than the index of last element
@@ -128,6 +134,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * Removes element e at index number.
+     *
      * @param index the index number, whose element e assumed to remove.
      * @return removed element e at index number
      */
@@ -165,6 +172,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * Sorts all elements in collection by comparator rules.
+     *
      * @param comparator Comparator of type E or extended one from E, used for comparing and sorting elements.
      * @throws NullPointerException if comparator is null.
      */
@@ -208,6 +216,7 @@ public class MyArrayList<E> implements MyList<E> {
 
     /**
      * Getting the size of collection.
+     *
      * @return Number of elements stored in collection.
      */
     @Override

@@ -13,7 +13,7 @@ public interface MyList<E> {
     /**
      * Adding element to collection by order.
      * @param e element to be added to collection.
-     * @return true - if element e added.
+     * @return true - if element e added, false - if not.
      */
     boolean add(E e);
 
@@ -21,7 +21,7 @@ public interface MyList<E> {
      * Adding element to collection at index number, saving order of other elements.
      * @param index the index number, where element e assumed to add.
      * @param e element to be added to collection.
-     * @return true - if element e added.
+     * @return true - if element e added, false - if not.
      */
     boolean add(int index, E e);
 
