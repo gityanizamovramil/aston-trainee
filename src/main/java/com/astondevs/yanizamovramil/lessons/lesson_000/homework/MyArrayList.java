@@ -36,6 +36,20 @@ public class MyArrayList<E> implements MyList<E> {
     }
 
     /**
+     * Instantiates a new My array list instance with specified elements capacity.
+     *
+     * @param capacity the initial capacity of collection to be set. Min value must be bigger than or equal to 0,
+     *                 max value must be less than or equal to Integer.MAX_VALUE - 8.
+     * @throws IllegalArgumentException if specified capacity value does not match its min and max limits.
+     */
+    public MyArrayList(int capacity) {
+        if (capacity < 1 || capacity > (Integer.MAX_VALUE - 8)) {
+            throw new IllegalArgumentException();
+        }
+        elementArray = new Object[capacity];
+    }
+
+    /**
      * Adding element to collection by order.
      *
      * @param e element to be added to collection.
@@ -56,6 +70,9 @@ public class MyArrayList<E> implements MyList<E> {
         Object[] extendedElementArray;
         if (elementArray.length == (biggestIndex + 1) && (biggestIndex + 1) <= min) {
             int extended = (elementArray.length / 10) * 27 - 11;
+            if (extended < 20) {
+                extended = 20;
+            }
             extendedElementArray = new Object[extended];
             System.arraycopy(elementArray, 0, extendedElementArray, 0, (biggestIndex + 1));
             elementArray = extendedElementArray;
@@ -95,6 +112,9 @@ public class MyArrayList<E> implements MyList<E> {
         Object[] extendedElementArray = new Object[elementArray.length];
         if (elementArray.length == (biggestIndex + 1) && (biggestIndex + 1) <= min) {
             int extended = (elementArray.length / 10) * 27 - 11;
+            if (extended < 20) {
+                extended = 20;
+            }
             extendedElementArray = new Object[extended];
         } else if (elementArray.length == (biggestIndex + 1) && elementArray.length >= min) {
             extendedElementArray = new Object[max];

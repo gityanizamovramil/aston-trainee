@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MyArrayListTest {
-
     private MyArrayList<Integer> elementArray;
     Comparator<Integer> comparator;
 
