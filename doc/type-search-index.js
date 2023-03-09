@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.astondevs.yanizamovramil","l":"App"},{"p":"com.astondevs.yanizamovramil.lessons.lesson_000.homework","l":"MyArrayList"},{"p":"com.astondevs.yanizamovramil.lessons.lesson_000.homework","l":"MyList"}]
